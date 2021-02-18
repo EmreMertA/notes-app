@@ -17,6 +17,7 @@ const Team = ({ text, value, title }) => {
     >
       <Heading size="sm">{title}</Heading>
       <Text
+        textAlign="center"
         fontSize="9px"
         color="#fff"
         bgColor="teal"

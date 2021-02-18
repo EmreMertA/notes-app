@@ -1,17 +1,16 @@
 import { Flex } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import Container from "./Container";
+import { NoteContext } from "./contexts/NoteContext";
 import Team from "./Team";
 
 const App = () => {
+  const { notes } = useContext(NoteContext);
   return (
     <Container bgSrc="notesbg.svg">
-      <Team
-        title="Emre Mert Akdağ"
-        text="Lorem Ipsum, dizgi ve baskı endüstrisinde
-         kullanılan mıgır metinlerdir."
-        value={13}
-      />
+      {notes.map((note) => (
+        <Team title={note.title} text={note.text} value={note.value} />
+      ))}
     </Container>
   );
 };
