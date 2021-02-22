@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Container bgSrc="notesbg.svg">
       {notes.map((note) => (
-        <Note title={note.title} text={note.text} value={note.value} />
+        <Note title={note.title} note={note.note} value={note.value} />
       ))}
       <Button onClick={onOpen}>Open Modal</Button>
       <ModalContainer onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
