@@ -1,6 +1,6 @@
 import { Flex, Text, Heading, Button } from "@chakra-ui/react";
 
-const Team = ({ text, value, title }) => {
+const Team = ({ note, value, title }) => {
   return (
     <Flex
       pt="10px"
@@ -31,7 +31,7 @@ const Team = ({ text, value, title }) => {
         önemi: {value}
       </Text>
       <Text noOfLines={4} fontSize="12px" mt="3px">
-        {text}
+        {note}
       </Text>
 
       <Button

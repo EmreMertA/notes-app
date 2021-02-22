@@ -7,13 +7,17 @@ const NoteContextProvider = (props) => {
     {
       id: uuidv4(),
       title: "Emre Mert Akdağğ",
-      text:
+      note:
         "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.",
       value: 8,
     },
   ]);
+
+  const addNote = (title, note, value) => {
+    setNotes([...notes, { id: uuidv4(), title, note, value }]);
+  };
   return (
-    <NoteContext.Provider value={{ notes }}>
+    <NoteContext.Provider value={{ notes, addNote }}>
       {props.children}
     </NoteContext.Provider>
   );

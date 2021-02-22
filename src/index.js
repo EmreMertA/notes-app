@@ -6,11 +6,11 @@ import NoteContextProvider from "./contexts/NoteContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <NoteContextProvider>
+    <NoteContextProvider>
+      <ChakraProvider>
         <App />
-      </NoteContextProvider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </NoteContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
