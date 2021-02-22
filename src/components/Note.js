@@ -1,10 +1,11 @@
-import { Flex, Text, Heading, Button } from "@chakra-ui/react";
+import { Flex, Text, Heading, Button, useDisclosure } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { NoteContext } from "../contexts/NoteContext";
+import EditNote from "./EditNote";
 
 const Team = ({ note, value, title, id }) => {
   const { deleteNote } = useContext(NoteContext);
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex
       pt="10px"
@@ -60,9 +61,19 @@ const Team = ({ note, value, title, id }) => {
         color="#fff"
         h={8}
         fontSize="sm"
+        onClick={onOpen}
       >
         Düzenle
       </Button>
+      <EditNote
+        tempId={id}
+        tempTitle={title}
+        tempNote={note}
+        tempValue={value}
+        onOpen={onOpen}
+        onClose={onClose}
+        isOpen={isOpen}
+      />
     </Flex>
   );
 };

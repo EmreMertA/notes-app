@@ -19,8 +19,11 @@ const NoteContextProvider = (props) => {
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
+  const updateNote = (id, updatedNote) => {
+    setNotes(notes.map((note) => (note.id === id ? updatedNote : note)));
+  };
   return (
-    <NoteContext.Provider value={{ notes, addNote, deleteNote }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, updateNote }}>
       {props.children}
     </NoteContext.Provider>
   );
