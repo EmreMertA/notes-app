@@ -1,6 +1,10 @@
 import { Flex, Text, Heading, Button } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { NoteContext } from "../contexts/NoteContext";
 
-const Team = ({ note, value, title }) => {
+const Team = ({ note, value, title, id }) => {
+  const { deleteNote } = useContext(NoteContext);
+
   return (
     <Flex
       pt="10px"
@@ -43,6 +47,7 @@ const Team = ({ note, value, title }) => {
         color="#fff"
         h={8}
         fontSize="sm"
+        onClick={() => deleteNote(id)}
       >
         Sil
       </Button>

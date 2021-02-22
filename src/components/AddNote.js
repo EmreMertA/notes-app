@@ -33,7 +33,7 @@ const ModalContainer = ({ isOpen, onClose }) => {
   const handleSumbit = (e) => {
     e.preventDefault();
     addNote(title, note, value);
-    onClose()
+    onClose();
   };
   return (
     <Modal

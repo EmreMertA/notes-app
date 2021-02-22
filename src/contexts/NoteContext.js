@@ -16,8 +16,11 @@ const NoteContextProvider = (props) => {
   const addNote = (title, note, value) => {
     setNotes([...notes, { id: uuidv4(), title, note, value }]);
   };
+  const deleteNote = (id) => {
+    setNotes(notes.filter((note) => note.id !== id));
+  };
   return (
-    <NoteContext.Provider value={{ notes, addNote }}>
+    <NoteContext.Provider value={{ notes, addNote, deleteNote }}>
       {props.children}
     </NoteContext.Provider>
   );
