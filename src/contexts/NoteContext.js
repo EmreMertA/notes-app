@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 export const NoteContext = createContext();
 
@@ -26,6 +26,15 @@ const NoteContextProvider = (props) => {
       value: 1,
     },
   ]);
+
+  useEffect(() => {
+    const notes = localStorage.getItem("notes");
+    setNotes(JSON.parse(notes));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  });
 
   const addNote = (title, note, value) => {
     setNotes([...notes, { id: uuidv4(), title, note, value }]);
