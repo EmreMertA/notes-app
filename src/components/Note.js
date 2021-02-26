@@ -1,4 +1,5 @@
 import { Flex, Text, Heading, Button, useDisclosure } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 import React, { useContext } from "react";
 import { NoteContext } from "../contexts/NoteContext";
 import EditNote from "./EditNote";
@@ -6,6 +7,14 @@ import EditNote from "./EditNote";
 const Team = ({ note, value, title, id }) => {
   const { deleteNote } = useContext(NoteContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const breakpoints = createBreakpoints({
+    sm: "30em",
+    md: "48em",
+    lg: "62em",
+    xl: "80em",
+    "2xl": "96em",
+  });
+
   return (
     <Flex
       pt="10px"
@@ -13,14 +22,16 @@ const Team = ({ note, value, title, id }) => {
       px="20px"
       borderRadius="15px"
       border="5px solid #C3F2FF"
-      w="600px"
+      w={[300, 400, 560 ,600]}
       h="auto"
       minH="125px"
       bgColor="#E6F8FD"
       direction="column"
       position="relative"
     >
-      <Heading size="sm">{title}</Heading>
+      <Heading size="sm" w="90%" >
+        {title}
+      </Heading>
       <Text
         textAlign="center"
         fontSize="9px"
