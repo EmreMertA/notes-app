@@ -22,14 +22,14 @@ const Team = ({ note, value, title, id }) => {
       px="20px"
       borderRadius="15px"
       border="5px solid #C3F2FF"
-      w={[300, 400, 560 ,600]}
+      w={[300, 450, 600]}
       h="auto"
       minH="125px"
       bgColor="#E6F8FD"
       direction="column"
       position="relative"
     >
-      <Heading size="sm" w="90%" >
+      <Heading size="sm" w="90%">
         {title}
       </Heading>
       <Text
@@ -46,7 +46,11 @@ const Team = ({ note, value, title, id }) => {
       >
         önemi: {value}
       </Text>
-      <Text noOfLines={4} fontSize="12px" mt="3px">
+      <Text
+        noOfLines={4}
+        fontSize={{ base: "12px", md: "14px", lg: "14px" }}
+        mt="3px"
+      >
         {note}
       </Text>
 

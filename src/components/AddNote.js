@@ -84,6 +84,14 @@ const ModalContainer = ({ isOpen, onClose }) => {
             type="submit"
             colorScheme="blue"
             mr={3}
+            isDisabled={
+              title.length >= 40 ||
+              title.length === 0 ||
+              note.length >= 275 ||
+              note.length === 0
+                ? true
+                : false
+            }
           >
             Ekle
           </Button>
