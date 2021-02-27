@@ -3,29 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const NoteContext = createContext();
 
 const NoteContextProvider = (props) => {
-  const [notes, setNotes] = useState([
-    {
-      id: uuidv4(),
-      title: "Emre Mert Akdağğ",
-      note:
-        "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.",
-      value: 8,
-    },
-    {
-      id: uuidv4(),
-      title: "Emre Mert Akdağğ",
-      note:
-        "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.",
-      value: 5,
-    },
-    {
-      id: uuidv4(),
-      title: "Emre Mert Akdağğ",
-      note:
-        "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.",
-      value: 1,
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const notes = localStorage.getItem("notes");
