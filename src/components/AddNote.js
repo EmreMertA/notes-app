@@ -52,7 +52,7 @@ const ModalContainer = ({ isOpen, onClose }) => {
             <Input
               onChange={(e) => setTitle(e.target.value)}
               ref={initialRef}
-              placeholder="örn: Doğrum günü"
+              placeholder="örn: Doğum günü"
             />
 
             <FormLabel mt={4}>Not *</FormLabel>
