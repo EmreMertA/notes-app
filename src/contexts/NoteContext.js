@@ -4,7 +4,7 @@ export const NoteContext = createContext();
 
 const NoteContextProvider = (props) => {
   const [notes, setNotes] = useState([]);
-
+  
   useEffect(() => {
     const notes = localStorage.getItem("notes");
     setNotes(JSON.parse(notes));

@@ -1,4 +1,10 @@
-import { Button, Heading, Stack, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  Stack,
+  useDisclosure,
+ 
+} from "@chakra-ui/react";
 import React, { useContext } from "react";
 import ModalContainer from "./components/AddNote";
 import Note from "./components/Note";

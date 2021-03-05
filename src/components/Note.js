@@ -1,5 +1,11 @@
-import { Flex, Text, Heading, Button, useDisclosure } from "@chakra-ui/react";
-import { createBreakpoints } from "@chakra-ui/theme-tools";
+import {
+  Flex,
+  Text,
+  Heading,
+  Button,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { NoteContext } from "../contexts/NoteContext";
 import EditNote from "./EditNote";
@@ -7,14 +13,18 @@ import EditNote from "./EditNote";
 const Team = ({ note, value, title, id }) => {
   const { deleteNote } = useContext(NoteContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const breakpoints = createBreakpoints({
-    sm: "30em",
-    md: "48em",
-    lg: "62em",
-    xl: "80em",
-    "2xl": "96em",
-  });
+  const toast = useToast();
 
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    deleteNote(id);
+    toast({
+      description: "Not Silindi.",
+      status: "error",
+      duration: 3000,
+      isClosable: false,
+    });
+  };
   return (
     <Flex
       pt="10px"
@@ -63,7 +73,7 @@ const Team = ({ note, value, title, id }) => {
         color="#fff"
         h={8}
         fontSize="sm"
-        onClick={() => deleteNote(id)}
+        onClick={handleSumbit}
       >
         Sil
       </Button>

@@ -16,6 +16,7 @@ import {
   SliderThumb,
   SliderTrack,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState, useContext } from "react";
 import { NoteContext } from "../contexts/NoteContext";
@@ -27,8 +28,8 @@ const EditNote = ({
   tempId,
   onClose,
   isOpen,
-  onOpen,
 }) => {
+  const toast = useToast();
   const { updateNote } = useContext(NoteContext);
 
   const initialRef = React.useRef();
@@ -44,6 +45,13 @@ const EditNote = ({
   const handleSumbit = (e) => {
     e.preventDefault();
     updateNote(id, updatedNote);
+    toast({
+      description: "Not Düzenlendi.",
+      status: "warning",
+      duration: 3000,
+      isClosable: false,
+    });
+
     onClose();
   };
   return (

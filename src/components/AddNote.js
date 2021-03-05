@@ -16,12 +16,14 @@ import {
   SliderThumb,
   SliderTrack,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState, useContext } from "react";
 import { NoteContext } from "../contexts/NoteContext";
 
 const ModalContainer = ({ isOpen, onClose }) => {
   const { addNote } = useContext(NoteContext);
+  const toast = useToast();
 
   const initialRef = React.useRef();
   const finalRef = React.useRef();
@@ -33,8 +35,15 @@ const ModalContainer = ({ isOpen, onClose }) => {
   const handleSumbit = (e) => {
     e.preventDefault();
     addNote(title, note, value);
+    toast({
+      description: "Not Oluşturuldu.",
+      status: "success",
+      duration: 3000,
+      isClosable: false,
+    });
     onClose();
   };
+
   return (
     <Modal
       initialFocusRef={initialRef}
